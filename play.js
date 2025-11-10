@@ -134,7 +134,7 @@ for(let i=0;i<WORDS.length;i++){
 // Controles cámara
 let dragging=false,lastX=0,lastY=0;
 function onDown(e){dragging=true;const t=e.touches?e.touches[0]:e;lastX=t.clientX;lastY=t.clientY;}
-function onMove(e){if(!dragging)return;const t=e.touches?e.touches[0]:e;const dx=(t.clientX-lastX)/innerWidth;const dy=(t.clientY-lastY)/innerHeight;rotY-=dx*3;rotX=Math.max(-1.2,Math.min(1.2,rotX-dy*2.2));lastX=t.clientX;lastY=t.clientY;}
+function onMove(e){if(!dragging)return;const t=e.touches?e.touches[0]:e;const dx=(t.clientX-lastX)/innerWidth;const dy=(t.clientY-lastY)/innerHeight;rotY-=dx*3;rotX=Math.max(-1.2,Math.min(1.2,rotX+dy*2.2));lastX=t.clientX;lastY=t.clientY;}
 function onUp(){dragging=false;}
 addEventListener('mousedown',onDown);addEventListener('mousemove',onMove);addEventListener('mouseup',onUp);
 addEventListener('touchstart',onDown,{passive:true});addEventListener('touchmove',onMove,{passive:true});addEventListener('touchend',onUp,{passive:true});
