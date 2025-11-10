@@ -1,5 +1,5 @@
 // ================= Reproductor =================
-const audio=document.getElementById('audio'),playBtn=document.getElementById('play'),progress=document.getElementById('progress'),progressBar=document.getElementById('progress-bar'),timeDisplay=document.getElementById('time');let isPlaying=false;
+const audio=document.getElementById('audio'),playBtn=document.getElementById('play'),progress=document.getElementById('progress'),progressBar=document.getElementById('progress-bar'),timeDisplay=document.getElementById('time');let isPlaying=true;
 playBtn.addEventListener('click',async()=>{if(isPlaying){audio.pause();playBtn.textContent='▶️';}else{await audio.play();playBtn.textContent='⏸️';}isPlaying=!isPlaying;});
 function formatTime(sec){if(!isFinite(sec))return'0:00';const m=Math.floor(sec/60);const s=Math.floor(sec%60).toString().padStart(2,'0');return m+':'+s;}
 audio.addEventListener('timeupdate',()=>{const percent=(audio.currentTime/audio.duration)*100;progressBar.style.width=(isFinite(percent)?percent:0)+'%';timeDisplay.textContent=formatTime(audio.currentTime)+' / '+formatTime(audio.duration);});
