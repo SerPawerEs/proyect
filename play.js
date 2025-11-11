@@ -4,12 +4,6 @@ playBtn.addEventListener('click',async()=>{if(isPlaying){audio.pause();playBtn.t
 function formatTime(sec){if(!isFinite(sec))return'0:00';const m=Math.floor(sec/60);const s=Math.floor(sec%60).toString().padStart(2,'0');return m+':'+s;}
 audio.addEventListener('timeupdate',()=>{const percent=(audio.currentTime/audio.duration)*100;progressBar.style.width=(isFinite(percent)?percent:0)+'%';timeDisplay.textContent=formatTime(audio.currentTime)+' / '+formatTime(audio.duration);});
 progress.addEventListener('click',(e)=>{const rect=progress.getBoundingClientRect();const x=e.clientX-rect.left;const percent=x/rect.width;if(isFinite(audio.duration))audio.currentTime=percent*audio.duration;});
-// Autoplay
-window.addEventListener('load', async ()=>{
-  await audio.play();
-  playBtn.textContent='⏸️';
-  isPlaying=true;
-});
 
 // ================= Escena =================
 const canvas=document.getElementById('c');
