@@ -5,7 +5,11 @@ function formatTime(sec){if(!isFinite(sec))return'0:00';const m=Math.floor(sec/6
 audio.addEventListener('timeupdate',()=>{const percent=(audio.currentTime/audio.duration)*100;progressBar.style.width=(isFinite(percent)?percent:0)+'%';timeDisplay.textContent=formatTime(audio.currentTime)+' / '+formatTime(audio.duration);});
 progress.addEventListener('click',(e)=>{const rect=progress.getBoundingClientRect();const x=e.clientX-rect.left;const percent=x/rect.width;if(isFinite(audio.duration))audio.currentTime=percent*audio.duration;});
 // Autoplay
-window.addEventListener('load', async ()=>{await audio.play();playBtn.textContent='⏸️';isPlaying=true;});
+window.addEventListener('load', async ()=>{
+  await audio.play();
+  playBtn.textContent='⏸️';
+  isPlaying=true;
+});
 
 // ================= Escena =================
 const canvas=document.getElementById('c');
