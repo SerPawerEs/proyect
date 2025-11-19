@@ -40,9 +40,12 @@ const coreMat=new THREE.MeshPhongMaterial({color:0x111111,transparent:true,opaci
 const core=new THREE.Mesh(new THREE.SphereGeometry(40,64,64),coreMat);
 scene.add(core);
 
+
 // Mensaje "TE AMO ❤️" fijo en el centro
 function makeCenterTextTexture(msg){
-  const c=document.createElement('canvas');c.width=512;c.height=512;
+  const c=document.createElement('canvas');
+  c.width=512;
+  c.height=512;
   const ctx=c.getContext('2d');
   ctx.clearRect(0,0,c.width,c.height);
   ctx.font='bold 80px Arial';
@@ -61,6 +64,7 @@ centerSprite.scale.set(60,60,1);
 centerSprite.position.set(0,0,0);
 centerSprite.renderOrder=999;
 scene.add(centerSprite);
+
 
 // Glow exterior
 function makeGlow(size=768,c1='255,160,0',c2='255,60,0'){
@@ -99,7 +103,7 @@ scene.add(ring1);scene.add(ring2);
 // Palabras alrededor
 const WORDS=[];
 const baseWords=[
-  '💖 Mi amor','🌞 Mi sol','🌎 Mi mundo','✨ Brillas','❤️ Te amo','🌌 Universo',
+  '💖 Mi amor','🌕 Mi luna','🌎 Mi mundo','✨ Brillas','❤️ Te amo','🌌 Universo',
   '👑 Reina','🌠 Estrella','💫 Mi cielo','🔥 Siempre tú','🎶 Tu risa','🦋 Libertad',
   '💎 Eres todo','🙏 Gracias','💕 Cariño','🌹 Amor eterno','🤗 Abrazos','🌸 Esperanza',
   '🌈 Alegría','🌟 Contigo','🧸 Ternura','🎁 Mi razón','🌙 Mi destino','💌 Recuerdos',
