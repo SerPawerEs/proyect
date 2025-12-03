@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicie</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="dinoicon.png">
 </head>
 <body>
     <div class="gen-container">
@@ -34,11 +35,13 @@
 
         function verify(event){
             if(input.value === clave){
-                alerta.innerHTML = `Cargando siguiente pagina`
+                alerta.innerHTML = `*cargando siguiente pagina`
+                alerta.style.color = 'rgb(120, 255, 120)'
                 window.location.href = 'http://serpawer.servegame.com'
                 event.preventDefault()
             }else{
                 alerta.innerHTML = `*contraseña incorrecta`
+                alerta.style.color = 'rgb(255, 117, 117)'
                 event.preventDefault()
             }
         }
